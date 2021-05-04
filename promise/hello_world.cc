@@ -1,4 +1,5 @@
 #include <napi.h>
+#include <v8.h>
 
 Napi::Promise SumAsyncPromise(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
@@ -16,7 +17,7 @@ Napi::Promise SumAsyncPromise(const Napi::CallbackInfo& info) {
   // `AsyncWorker` (or a similar concept) in order to ensure this
   // `Promise` is fulfilled asynchronously.
   //
-  auto deferred = Napi::Promise::Deferred::New(env);
+  Napi::Promise::Deferred deferred = Napi::Promise::Deferred::New(env);
 
   if (info.Length() != 2) {
     deferred.Reject(

@@ -1,0 +1,13 @@
+Release/obj.target/hello_world/hello_world.o: ../hello_world.cc \
+  /Users/fles_dev01/Desktop/native/promise/node_modules/node-addon-api/napi.h \
+  /Users/fles_dev01/Library/Caches/node-gyp/14.16.1/include/node/node_api.h \
+  /Users/fles_dev01/Library/Caches/node-gyp/14.16.1/include/node/js_native_api.h \
+  /Users/fles_dev01/Library/Caches/node-gyp/14.16.1/include/node/js_native_api_types.h \
+  /Users/fles_dev01/Library/Caches/node-gyp/14.16.1/include/node/node_api_types.h \
+  /Users/fles_dev01/Desktop/native/promise/node_modules/node-addon-api/napi-inl.h \
+  /Users/fles_dev01/Desktop/native/promise/node_modules/node-addon-api/napi-inl.deprecated.h \
+  /Users/fles_dev01/Library/Caches/node-gyp/14.16.1/include/node/v8.h \
+  /Users/fles_dev01/Library/Caches/node-gyp/14.16.1/include/node/cppgc/common.h \
+  /Users/fles_dev01/Library/Caches/node-gyp/14.16.1/include/node/v8config.h \
+  /Users/fles_dev01/Library/Caches/node-gyp/14.16.1/include/node/v8-internal.h \
+  /Users/fles_dev01/Library/Caches/node-gyp/14.16.1/include/node/v8-version.h
