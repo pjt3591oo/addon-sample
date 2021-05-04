@@ -28,7 +28,7 @@ $ node index.js
 
 * vscode include path settup
 
-`.vscode/c_cpp_properties.json`
+`.vscode/c_cpp_properties.json` 해당 설정 파일은 확장 프로그램 `C/C++` 설정파일
 
 ```json
 {
