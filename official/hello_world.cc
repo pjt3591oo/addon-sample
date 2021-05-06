@@ -4,7 +4,6 @@
 #include <unistd.h>
 
 namespace demo {
-
   using v8::Context;
   using v8::Function;
   using v8::Exception;
@@ -19,15 +18,10 @@ namespace demo {
   using v8::Null;
   using v8::Persistent;
 
-  // This is the implementation of the "add" method
-  // Input arguments are passed using the
-  // const FunctionCallbackInfo<Value>& args struct
   void Add(const FunctionCallbackInfo<Value> &args) {
     Isolate *isolate = args.GetIsolate();
 
-    // Check the number of arguments passed.
     if (args.Length() < 2) {
-      // Throw an Error that is passed back to JavaScript
       isolate->ThrowException(Exception::TypeError(
           String::NewFromUtf8(isolate,
                               "Wrong number of arguments")
@@ -35,7 +29,6 @@ namespace demo {
       return;
     }
 
-    // Check the argument types
     if (!args[0]->IsNumber() || !args[1]->IsNumber()) {
       isolate->ThrowException(Exception::TypeError(
           String::NewFromUtf8(isolate,
@@ -44,21 +37,16 @@ namespace demo {
       return;
     }
 
-    // Perform the operation
     double value = args[0].As<Number>()->Value() + args[1].As<Number>()->Value();
     Local<Number> num = Number::New(isolate, value);
 
-    // Set the return value (using the passed in
-    // FunctionCallbackInfo<Value>&)
     args.GetReturnValue().Set(num);
   }
 
   void Sub(const FunctionCallbackInfo<Value> &args) {
     Isolate *isolate = args.GetIsolate();
 
-    // Check the number of arguments passed.
     if (args.Length() < 2) {
-      // Throw an Error that is passed back to JavaScript
       isolate->ThrowException(Exception::TypeError(
           String::NewFromUtf8(isolate,
                               "Wrong number of arguments")
@@ -66,7 +54,6 @@ namespace demo {
       return;
     }
 
-    // Check the argument types
     if (!args[0]->IsNumber() || !args[1]->IsNumber()) {
       isolate->ThrowException(Exception::TypeError(
           String::NewFromUtf8(isolate,
@@ -75,12 +62,9 @@ namespace demo {
       return;
     }
 
-    // Perform the operation
     double value = args[0].As<Number>()->Value() - args[1].As<Number>()->Value();
     Local<Number> num = Number::New(isolate, value);
 
-    // Set the return value (using the passed in
-    // FunctionCallbackInfo<Value>&)
     args.GetReturnValue().Set(num);
   }
 
@@ -98,7 +82,6 @@ namespace demo {
   void CreateObject(const FunctionCallbackInfo<Value>& args) {
     Isolate* isolate = args.GetIsolate();
     if (args.Length() < 2) {
-      // Throw an Error that is passed back to JavaScript
       isolate->ThrowException(Exception::TypeError(
           String::NewFromUtf8(isolate,
                               "Wrong number of arguments")
@@ -136,14 +119,11 @@ namespace demo {
     Local<FunctionTemplate> tpl = FunctionTemplate::New(isolate, MyFunction);
     Local<Function> fn = tpl->GetFunction(context).ToLocalChecked();
 
-    // omit this to make it anonymous
     fn->SetName(String::NewFromUtf8(
         isolate, "theFunction").ToLocalChecked());
 
     args.GetReturnValue().Set(fn);
   }
-
-  // *************** 여기서부터 비동기 ***************
 
   void Init(Local<Object> exports)
   {
@@ -156,4 +136,4 @@ namespace demo {
 
   NODE_MODULE(NODE_GYP_MODULE_NAME, Init)
 
-} // namespace demo
+} 

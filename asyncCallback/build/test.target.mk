@@ -24,7 +24,7 @@ DEFS_Debug := \
 CFLAGS_Debug := \
 	-O0 \
 	-gdwarf-2 \
-	-mmacosx-version-min=10.10 \
+	-mmacosx-version-min=10.13 \
 	-arch x86_64 \
 	-Wall \
 	-Wendif-labels \
@@ -50,14 +50,14 @@ CFLAGS_OBJC_Debug :=
 CFLAGS_OBJCC_Debug :=
 
 INCS_Debug := \
-	-I/Users/bagjeongtae/Library/Caches/node-gyp/12.18.4/include/node \
-	-I/Users/bagjeongtae/Library/Caches/node-gyp/12.18.4/src \
-	-I/Users/bagjeongtae/Library/Caches/node-gyp/12.18.4/deps/openssl/config \
-	-I/Users/bagjeongtae/Library/Caches/node-gyp/12.18.4/deps/openssl/openssl/include \
-	-I/Users/bagjeongtae/Library/Caches/node-gyp/12.18.4/deps/uv/include \
-	-I/Users/bagjeongtae/Library/Caches/node-gyp/12.18.4/deps/zlib \
-	-I/Users/bagjeongtae/Library/Caches/node-gyp/12.18.4/deps/v8/include \
-	-I/Users/bagjeongtae/Desktop/addon-sample/asyncCallback/node_modules/node-addon-api
+	-I/Users/fles_dev01/Library/Caches/node-gyp/14.16.1/include/node \
+	-I/Users/fles_dev01/Library/Caches/node-gyp/14.16.1/src \
+	-I/Users/fles_dev01/Library/Caches/node-gyp/14.16.1/deps/openssl/config \
+	-I/Users/fles_dev01/Library/Caches/node-gyp/14.16.1/deps/openssl/openssl/include \
+	-I/Users/fles_dev01/Library/Caches/node-gyp/14.16.1/deps/uv/include \
+	-I/Users/fles_dev01/Library/Caches/node-gyp/14.16.1/deps/zlib \
+	-I/Users/fles_dev01/Library/Caches/node-gyp/14.16.1/deps/v8/include \
+	-I/Users/fles_dev01/Desktop/addon-sample/asyncCallback/node_modules/node-addon-api
 
 DEFS_Release := \
 	'-DNODE_GYP_MODULE_NAME=test' \
@@ -78,7 +78,7 @@ DEFS_Release := \
 CFLAGS_Release := \
 	-O3 \
 	-gdwarf-2 \
-	-mmacosx-version-min=10.10 \
+	-mmacosx-version-min=10.13 \
 	-arch x86_64 \
 	-Wall \
 	-Wendif-labels \
@@ -104,14 +104,14 @@ CFLAGS_OBJC_Release :=
 CFLAGS_OBJCC_Release :=
 
 INCS_Release := \
-	-I/Users/bagjeongtae/Library/Caches/node-gyp/12.18.4/include/node \
-	-I/Users/bagjeongtae/Library/Caches/node-gyp/12.18.4/src \
-	-I/Users/bagjeongtae/Library/Caches/node-gyp/12.18.4/deps/openssl/config \
-	-I/Users/bagjeongtae/Library/Caches/node-gyp/12.18.4/deps/openssl/openssl/include \
-	-I/Users/bagjeongtae/Library/Caches/node-gyp/12.18.4/deps/uv/include \
-	-I/Users/bagjeongtae/Library/Caches/node-gyp/12.18.4/deps/zlib \
-	-I/Users/bagjeongtae/Library/Caches/node-gyp/12.18.4/deps/v8/include \
-	-I/Users/bagjeongtae/Desktop/addon-sample/asyncCallback/node_modules/node-addon-api
+	-I/Users/fles_dev01/Library/Caches/node-gyp/14.16.1/include/node \
+	-I/Users/fles_dev01/Library/Caches/node-gyp/14.16.1/src \
+	-I/Users/fles_dev01/Library/Caches/node-gyp/14.16.1/deps/openssl/config \
+	-I/Users/fles_dev01/Library/Caches/node-gyp/14.16.1/deps/openssl/openssl/include \
+	-I/Users/fles_dev01/Library/Caches/node-gyp/14.16.1/deps/uv/include \
+	-I/Users/fles_dev01/Library/Caches/node-gyp/14.16.1/deps/zlib \
+	-I/Users/fles_dev01/Library/Caches/node-gyp/14.16.1/deps/v8/include \
+	-I/Users/fles_dev01/Desktop/addon-sample/asyncCallback/node_modules/node-addon-api
 
 OBJS := \
 	$(obj).target/$(TARGET)/test.o
@@ -146,7 +146,7 @@ LDFLAGS_Debug := \
 	-undefined dynamic_lookup \
 	-Wl,-no_pie \
 	-Wl,-search_paths_first \
-	-mmacosx-version-min=10.10 \
+	-mmacosx-version-min=10.13 \
 	-arch x86_64 \
 	-L$(builddir) \
 	-stdlib=libc++
@@ -160,7 +160,7 @@ LDFLAGS_Release := \
 	-undefined dynamic_lookup \
 	-Wl,-no_pie \
 	-Wl,-search_paths_first \
-	-mmacosx-version-min=10.10 \
+	-mmacosx-version-min=10.13 \
 	-arch x86_64 \
 	-L$(builddir) \
 	-stdlib=libc++

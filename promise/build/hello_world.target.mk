@@ -57,7 +57,7 @@ INCS_Debug := \
 	-I/Users/fles_dev01/Library/Caches/node-gyp/14.16.1/deps/uv/include \
 	-I/Users/fles_dev01/Library/Caches/node-gyp/14.16.1/deps/zlib \
 	-I/Users/fles_dev01/Library/Caches/node-gyp/14.16.1/deps/v8/include \
-	-I/Users/fles_dev01/Desktop/native/promise/node_modules/node-addon-api
+	-I/Users/fles_dev01/Desktop/addon-sample/promise/node_modules/node-addon-api
 
 DEFS_Release := \
 	'-DNODE_GYP_MODULE_NAME=hello_world' \
@@ -111,7 +111,7 @@ INCS_Release := \
 	-I/Users/fles_dev01/Library/Caches/node-gyp/14.16.1/deps/uv/include \
 	-I/Users/fles_dev01/Library/Caches/node-gyp/14.16.1/deps/zlib \
 	-I/Users/fles_dev01/Library/Caches/node-gyp/14.16.1/deps/v8/include \
-	-I/Users/fles_dev01/Desktop/native/promise/node_modules/node-addon-api
+	-I/Users/fles_dev01/Desktop/addon-sample/promise/node_modules/node-addon-api
 
 OBJS := \
 	$(obj).target/$(TARGET)/hello_world.o
