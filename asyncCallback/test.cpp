@@ -1,7 +1,6 @@
 #include <napi.h>
 
 namespace demo {
-
   class ErrorAsyncWorker : public Napi::AsyncWorker {
     public:
       ErrorAsyncWorker(
@@ -57,8 +56,7 @@ namespace demo {
       double arg1;
       double sum;
 
-    void OnOK() override
-    {
+    void OnOK() override {
       Napi::Env env = Env();
 
       Callback().MakeCallback(
@@ -69,8 +67,7 @@ namespace demo {
       );
     }
 
-    void OnError(const Napi::Error& e) override
-    {
+    void OnError(const Napi::Error& e) override {
       Napi::Env env = Env();
 
       Callback().MakeCallback(
@@ -99,7 +96,6 @@ namespace demo {
       Napi::TypeError::New(env, "Invalid argument types").ThrowAsJavaScriptException();
       return;
     }
-
 
     //
     // Handle all other potential issues asynchronously via the provided callback

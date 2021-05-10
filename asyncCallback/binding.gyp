@@ -9,7 +9,7 @@
       "target_name": "test",
 
       # 여기서 타겟 소스파일을 지정합니다.
-      "sources": [ "test.cc" ],
+      "sources": [ "test.cpp" ],
       'defines': [ 'NAPI_DISABLE_CPP_EXCEPTIONS' ]
     }
   ]
