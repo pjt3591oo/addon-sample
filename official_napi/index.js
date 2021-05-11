@@ -20,3 +20,7 @@ addon.RunCallback((msg1, msg2) => {
 
 let createdObj = addon.CreateObject()
 console.log(createdObj);
+
+let createdFunc = addon.CreateFunction()
+let result = createdFunc(11, 22);
+console.log(result);

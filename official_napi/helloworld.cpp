@@ -1,11 +1,11 @@
 #include <napi.h>
 
 /*
-  * Add: 2개의 인자를 받아 덧셈 결과를 반환하는 함수 - 완료
-  * Sub: 2개의 인자를 받아 뺄셈 결과를 반환하는 함수 - 완료
-  * RunCallback: 하나의 함수를 전달받아 실행하는 함수 - 완료
-  * CreateObject: 객체를 반환하는 함수 - 완료
-  * CreateFunction: 함수를 반환하는 함수 - 작업중
+  * Add: 2개의 인자를 받아 덧셈 결과를 반환하는 함수
+  * Sub: 2개의 인자를 받아 뺄셈 결과를 반환하는 함수
+  * RunCallback: 하나의 함수를 전달받아 실행하는 함수
+  * CreateObject: 객체를 반환하는 함수
+  * CreateFunction: 함수를 반환하는 함수
 */
 namespace official_napi{
   Napi::Number Add(const Napi::CallbackInfo& info) {
@@ -54,7 +54,7 @@ namespace official_napi{
     cb.Call(
       env.Global(), {
         Napi::String::New(env, "helloworld1"),
-         Napi::String::New(env, "helloworld2")
+        Napi::String::New(env, "helloworld2")
       }
     );
   }
@@ -69,38 +69,35 @@ namespace official_napi{
     return obj;
   }
 
-  // Napi::Boolean MyFunction(const Napi::CallbackInfo& info) {
-  //   Napi::Env env = info.Env();
-  //   Napi::HandleScope scope(env);
+  Napi::Number MyFunction(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
 
-  //   if (info.Length() != 2 ) {
-  //     Napi::TypeError::New(env, "Invalid Number length 2").ThrowAsJavaScriptException();
-  //   } else if (!info[0].IsNumber() || !info[1].IsNumber()) {
-  //     Napi::TypeError::New(env, "Invalid Number Type Number").ThrowAsJavaScriptException();
-  //   }
+    if (info.Length() != 2 ) {
+      Napi::TypeError::New(env, "Invalid Number length 2").ThrowAsJavaScriptException();
+    } else if (!info[0].IsNumber() || !info[1].IsNumber()) {
+      Napi::TypeError::New(env, "Invalid Number Type Number").ThrowAsJavaScriptException();
+    }
 
-  //   double arg0 = info[0].As<Napi::Number>().DoubleValue();
-  //   double arg1 = info[1].As<Napi::Number>().DoubleValue();
+    double arg0 = info[0].As<Napi::Number>().DoubleValue();
+    double arg1 = info[1].As<Napi::Number>().DoubleValue();
 
-  //   return Napi::Number::New(env, arg0 + arg1);
-  // }
+    return Napi::Number::New(env, arg0 + arg1);
+  }
 
-  // Napi::Function CreateFunction(const Napi::CallbackInfo& info) {
-  //   Napi::Env env = info.Env();
-  //   Napi::Function myFunction = Napi::Function::New(env, MyFunction, {
-  //       Napi::Number::New(env, 1),
-  //        Napi::Number::New(env, 2)
-  //     });
+  Napi::Function CreateFunction(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::Function myFunction = Napi::Function::New(env, &MyFunction);
 
-  //   return Napi::FunctionReference::FunctionReference(env, &MyFunction);
-  // }
+    return myFunction;
+  }
 
   Napi::Object init(Napi::Env env, Napi::Object exports) {
     exports.Set(Napi::String::New(env, "Add"), Napi::Function::New(env, Add));
     exports.Set(Napi::String::New(env, "Sub"), Napi::Function::New(env, Sub));
     exports.Set(Napi::String::New(env, "RunCallback"), Napi::Function::New(env, RunCallback));
     exports.Set(Napi::String::New(env, "CreateObject"), Napi::Function::New(env, CreateObject));
-    // exports.Set(Napi::String::New(env, "CreateFunction"), Napi::Function::New(env, CreateFunction));
+    exports.Set(Napi::String::New(env, "CreateFunction"), Napi::Function::New(env, CreateFunction));
 
     return exports;
   };
