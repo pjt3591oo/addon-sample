@@ -121,10 +121,10 @@ endef
 # - quiet_cmd_foo is the brief-output summary of the command.
 
 quiet_cmd_cc = CC($(TOOLSET)) $@
-cmd_cc = $(CC.$(TOOLSET)) $(GYP_CFLAGS) $(DEPFLAGS) $(CFLAGS.$(TOOLSET)) -c -o $@ $<
+cmd_cc = $(CC.$(TOOLSET)) -o $@ $< $(GYP_CFLAGS) $(DEPFLAGS) $(CFLAGS.$(TOOLSET)) -c
 
 quiet_cmd_cxx = CXX($(TOOLSET)) $@
-cmd_cxx = $(CXX.$(TOOLSET)) $(GYP_CXXFLAGS) $(DEPFLAGS) $(CXXFLAGS.$(TOOLSET)) -c -o $@ $<
+cmd_cxx = $(CXX.$(TOOLSET)) -o $@ $< $(GYP_CXXFLAGS) $(DEPFLAGS) $(CXXFLAGS.$(TOOLSET)) -c
 
 quiet_cmd_objc = CXX($(TOOLSET)) $@
 cmd_objc = $(CC.$(TOOLSET)) $(GYP_OBJCFLAGS) $(DEPFLAGS) -c -o $@ $<
@@ -159,7 +159,7 @@ cmd_touch = touch $@
 
 quiet_cmd_copy = COPY $@
 # send stderr to /dev/null to ignore messages when linking directories.
-cmd_copy = rm -rf "$@" && cp -af "$<" "$@"
+cmd_copy = ln -f "$<" "$@" 2>/dev/null || (rm -rf "$@" && cp -af "$<" "$@")
 
 quiet_cmd_alink = LIBTOOL-STATIC $@
 cmd_alink = rm -f $@ && ./gyp-mac-tool filter-libtool libtool $(GYP_LIBTOOLFLAGS) -static -o $@ $(filter %.o,$^)
@@ -326,8 +326,8 @@ ifeq ($(strip $(foreach prefix,$(NO_LOAD),\
 endif
 
 quiet_cmd_regen_makefile = ACTION Regenerating $@
-cmd_regen_makefile = cd $(srcdir); /Users/bagjeongtae/.npm-global/lib/node_modules/node-gyp/gyp/gyp_main.py -fmake --ignore-environment "-Dlibrary=shared_library" "-Dvisibility=default" "-Dnode_root_dir=/Users/bagjeongtae/Library/Caches/node-gyp/12.18.4" "-Dnode_gyp_dir=/Users/bagjeongtae/.npm-global/lib/node_modules/node-gyp" "-Dnode_lib_file=/Users/bagjeongtae/Library/Caches/node-gyp/12.18.4/<(target_arch)/node.lib" "-Dmodule_root_dir=/Users/bagjeongtae/Desktop/addon-sample/official_napi" "-Dnode_engine=v8" "--depth=." "-Goutput_dir=." "--generator-output=build" -I/Users/bagjeongtae/Desktop/addon-sample/official_napi/build/config.gypi -I/Users/bagjeongtae/.npm-global/lib/node_modules/node-gyp/addon.gypi -I/Users/bagjeongtae/Library/Caches/node-gyp/12.18.4/include/node/common.gypi "--toplevel-dir=." binding.gyp
-Makefile: $(srcdir)/build/config.gypi $(srcdir)/../../../Library/Caches/node-gyp/12.18.4/include/node/common.gypi $(srcdir)/../../../.npm-global/lib/node_modules/node-gyp/addon.gypi $(srcdir)/binding.gyp
+cmd_regen_makefile = cd $(srcdir); /usr/local/lib/node_modules/node-gyp/gyp/gyp_main.py -fmake --ignore-environment "-Dlibrary=shared_library" "-Dvisibility=default" "-Dnode_root_dir=/Users/fles_dev01/Library/Caches/node-gyp/14.16.1" "-Dnode_gyp_dir=/usr/local/lib/node_modules/node-gyp" "-Dnode_lib_file=/Users/fles_dev01/Library/Caches/node-gyp/14.16.1/<(target_arch)/node.lib" "-Dmodule_root_dir=/Users/fles_dev01/Desktop/addon-sample/official_napi" "-Dnode_engine=v8" "--depth=." "-Goutput_dir=." "--generator-output=build" -I/Users/fles_dev01/Desktop/addon-sample/official_napi/build/config.gypi -I/usr/local/lib/node_modules/node-gyp/addon.gypi -I/Users/fles_dev01/Library/Caches/node-gyp/14.16.1/include/node/common.gypi "--toplevel-dir=." binding.gyp
+Makefile: $(srcdir)/../../../../../usr/local/lib/node_modules/node-gyp/addon.gypi $(srcdir)/../../../Library/Caches/node-gyp/14.16.1/include/node/common.gypi $(srcdir)/binding.gyp $(srcdir)/build/config.gypi
 	$(call do_cmd,regen_makefile)
 
 # "all" is a concatenation of the "all" targets from all the included

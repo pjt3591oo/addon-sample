@@ -1,8 +1,0 @@
-Release/obj.target/helloworld/helloworld.o: ../helloworld.cpp \
-  /Users/bagjeongtae/Desktop/addon-sample/official_napi/node_modules/node-addon-api/napi.h \
-  /Users/bagjeongtae/Library/Caches/node-gyp/12.18.4/include/node/node_api.h \
-  /Users/bagjeongtae/Library/Caches/node-gyp/12.18.4/include/node/js_native_api.h \
-  /Users/bagjeongtae/Library/Caches/node-gyp/12.18.4/include/node/js_native_api_types.h \
-  /Users/bagjeongtae/Library/Caches/node-gyp/12.18.4/include/node/node_api_types.h \
-  /Users/bagjeongtae/Desktop/addon-sample/official_napi/node_modules/node-addon-api/napi-inl.h \
-  /Users/bagjeongtae/Desktop/addon-sample/official_napi/node_modules/node-addon-api/napi-inl.deprecated.h

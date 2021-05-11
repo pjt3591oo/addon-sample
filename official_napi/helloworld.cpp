@@ -69,21 +69,21 @@ namespace official_napi{
     return obj;
   }
 
-  Napi::Boolean MyFunction(const Napi::CallbackInfo& info) {
-    Napi::Env env = info.Env();
-    Napi::HandleScope scope(env);
+  // Napi::Boolean MyFunction(const Napi::CallbackInfo& info) {
+  //   Napi::Env env = info.Env();
+  //   Napi::HandleScope scope(env);
 
-    if (info.Length() != 2 ) {
-      Napi::TypeError::New(env, "Invalid Number length 2").ThrowAsJavaScriptException();
-    } else if (!info[0].IsNumber() || !info[1].IsNumber()) {
-      Napi::TypeError::New(env, "Invalid Number Type Number").ThrowAsJavaScriptException();
-    }
+  //   if (info.Length() != 2 ) {
+  //     Napi::TypeError::New(env, "Invalid Number length 2").ThrowAsJavaScriptException();
+  //   } else if (!info[0].IsNumber() || !info[1].IsNumber()) {
+  //     Napi::TypeError::New(env, "Invalid Number Type Number").ThrowAsJavaScriptException();
+  //   }
 
-    double arg0 = info[0].As<Napi::Number>().DoubleValue();
-    double arg1 = info[1].As<Napi::Number>().DoubleValue();
+  //   double arg0 = info[0].As<Napi::Number>().DoubleValue();
+  //   double arg1 = info[1].As<Napi::Number>().DoubleValue();
 
-    return Napi::Number::New(env, arg0 + arg1);
-  }
+  //   return Napi::Number::New(env, arg0 + arg1);
+  // }
 
   // Napi::Function CreateFunction(const Napi::CallbackInfo& info) {
   //   Napi::Env env = info.Env();
